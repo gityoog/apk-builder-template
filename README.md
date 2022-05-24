@@ -40,8 +40,8 @@ src: string;
 /** android.jar 位置 (android_sdk/platforms/version/android.jar) */
 androidJar: string;
 
-/** 添加构建工具目录, 多个使用;连接 (如: android_sdk/build-tools/version/) */
-buildTools?: string;
+/** 添加构建工具目录 (如: android_sdk/build-tools/version/) */
+buildTools: string;
 
 /** 是否需要显示打包进程 (default: true) */
 render?: boolean;
