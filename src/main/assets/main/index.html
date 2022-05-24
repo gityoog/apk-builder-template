@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    
+  </head>
+  <body>
+    <div>
+      <form>
+        <div>ADB开关
+          <input type="radio" name="adb" value="1">开</input>
+          <input type="radio" name="adb" value="0">关</input>
+        </div>
+        <div>无线ADB
+          <input type="radio" name="wifi_adb" value="1">开</input>
+          <input type="radio" name="wifi_adb" value="0">关</input>
+        </div>
+      </form>
+      <div style="white-space: pre-line;position: fixed; bottom: 0;max-height: 50vh;padding-bottom: 10px;" id="message"></div>
+    </div>
+    <script>
+      const error = []
+      window.onerror = (e) => {
+        log(e.toString())
+      }
+      function log(e){
+        error.push(e)
+        if(error.length > 10){
+          error.shift()
+        }
+        document.getElementById('message').innerText = "------log-------\n" + error.join('\n')
+      }
+    </script>
+    <script>
+      const adbRadio = document.querySelectorAll('input[name="adb"]');
+      const wifi_adbRadio = document.querySelectorAll('input[name="wifi_adb"]');
+
+      const bridge = window.JSBridge || {}
+
+      log(`获取adb状态: ${bridge.isAdbEnabled()}`)
+      updateAdbStatus()
+
+      adbRadio.forEach(radio => {
+        radio.addEventListener('change', () => {
+          log(`设置adb状态: ${radio.value === '1'}`)
+          bridge.setAdbEnabled(radio.value === '1')
+          setTimeout(() => {
+            updateAdbStatus()
+          }, 500)
+        })
+      })
+      
+      log(`获取wifi_abd状态: ${bridge.isWifiAdbEnabled()}`)
+      updateWifiStatus()
+      
+      wifi_adbRadio.forEach(radio => {
+        radio.addEventListener('change', () => {
+          log(`设置wifi_adb状态: ${radio.value === '1'}`)
+          bridge.setWifiAdbEnabled(radio.value === '1')
+          setTimeout(() => {
+            updateWifiStatus()
+          }, 500)
+        })
+      })
+
+      function updateWifiStatus(){
+        if(bridge.isWifiAdbEnabled()){
+          wifi_adbRadio[0].checked = true
+        }else{
+          wifi_adbRadio[1].checked = true
+        }
+      }
+
+      function updateAdbStatus(){
+        if(bridge.isAdbEnabled()){
+          adbRadio[0].checked = true;
+        }else{
+          adbRadio[1].checked = true;
+        }
+      }
+    </script>
+  </body>
+</html>

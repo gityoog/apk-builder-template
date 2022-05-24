@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "noImplicitThis": true,
+    "strict": true,
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "sourceMap": false,
+    "target": "ESNext",
+    "module": "CommonJS"
+  },
+  "include": [
+    "./**/*"
+  ],
+  "ts-node": {
+    "transpileOnly": true
+  }
+}

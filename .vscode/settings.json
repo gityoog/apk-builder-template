@@ -1,0 +1,12 @@
+{
+    "java.project.sourcePaths": [
+        "src/main/java"
+    ],
+    "java.project.outputPath": "dist/classes",
+    "java.autobuild.enabled": false,
+    "java.settings.url": "setting.prefs",
+    "java.project.referencedLibraries": [
+        "D:\\Engpath\\android\\platforms\\android-29\\android.jar",
+        "lib\\*"
+    ]
+}
