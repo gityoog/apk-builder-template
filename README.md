@@ -58,3 +58,5 @@ adb?: {
   main: string;
 };
 ```
+
+![image](./doc/dev.gif)
