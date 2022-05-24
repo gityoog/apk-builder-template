@@ -26,6 +26,8 @@ $ npm run dev # for debug apk
 $ npm run build # for release apk
 ```
 
+![image](./doc/dev.gif)
+
 ## 配置
 
 ```ts
@@ -58,5 +60,3 @@ adb?: {
   main: string;
 };
 ```
-
-![image](./doc/dev.gif)
