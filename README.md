@@ -1,6 +1,6 @@
 # apk-builder-template
 
-template for node-apk-builder
+template for <a href="https://github.com/gityoog/node-apk-builder.git">node-apk-builder</a>
 
 ## 安装
 
