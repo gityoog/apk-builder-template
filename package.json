@@ -4,15 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "ts-node -r esbuild-register ./script/index.ts dev",
-    "build": "ts-node -r esbuild-register ./script/index.ts build"
+    "dev": "node -r ts-swc-register ./script/index.ts dev",
+    "build": "node -r ts-swc-register ./script/index.ts build"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/node": "^17.0.38",
     "apk-builder": "github:gityoog/node-apk-builder",
-    "esbuild-register": "^3.3.2",
     "log-update": "^5.0.1",
-    "ts-node": "^10.8.0"
+    "ts-swc-register": "github:gityoog/ts-swc-register"
   }
 }
